@@ -1,4 +1,4 @@
-# Hi, I'm Jonart 👋
+# 💻 Jonart Bajraktari 🖥️
 
 Third-year electrical engineering student at the University of Calgary with a computer engineering minor. I like embedded software, hardware, PCBs, graphics libraries and anything low-level.
 
