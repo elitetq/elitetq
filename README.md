@@ -20,7 +20,7 @@ Third-year electrical engineering student at the University of Calgary with a co
 
 - Electrical lead on **BMERIT**, a club focused on biomedical design, leading a 10-person electrical team
 - Software member on the **UCalgary Racing** formula car team, working on the back end
-- Starting **Schulich Press Start**, a club building gaming handhelds from the ground up
+- Founder of **Schulich Press Start**, a club designing a Game Boy-style handheld from the ground up, with a custom OS and game library. I'm building the PCB devkit from scratch in KiCad, working from reference designs
 
 ## More projects
 
