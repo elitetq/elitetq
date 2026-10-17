@@ -25,33 +25,22 @@ Third-year electrical engineering student at the University of Calgary with a co
 ## More projects
 
 ### [GameOver_NRF](https://github.com/elitetq/GameOver_NRF)
-TOTS, a touchscreen maze game for the nRF52840 DK. Swipe to move, collect points and avoid enemies. Runs on Zephyr and uses J-Graphics-Library for all rendering.
+TOTS, a touchscreen maze game for the nRF52840 DK running on Zephyr. You swipe to move, collect points and avoid enemies, and all rendering goes through my J-Graphics-Library. The repo includes image conversion scripts and full build and flash instructions.
 
 ### [jzip](https://github.com/elitetq/jzip)
-A file compressor in pure C with no dependencies. It uses static order-0 arithmetic coding and writes a self-describing `.jzip` container that restores the original bytes and file extension exactly. Round trips are verified byte for byte with SHA-256, cutting .txt files by 46% and .psd files by 24%. Builds on Linux and Windows.
+A file compressor in pure C with no dependencies. It uses static order-0 arithmetic coding with 32-bit bounds and a 15-bit probability model, and writes a self-describing `.jzip` container that restores the original bytes and file extension exactly. Round trips are checked with SHA-256, cutting .txt files by about 46% and .psd files by 24%, and it builds on Linux and Windows.
 
 ### [hid-controller](https://github.com/elitetq/hid-controller)
-A custom USB gamepad built on an STM32F103. Includes the KiCad schematic and PCB, the fabrication files, and the firmware. Two analog sticks, a D-pad, face buttons, bumpers and triggers. It enumerates as a HID gamepad on Linux, and Windows support is still in progress.
+A custom USB gamepad on an STM32F103 with my own KiCad schematic, PCB, fabrication files and firmware. It has two analog sticks, a D-pad, face buttons, bumpers and digital triggers, and it enumerates on Linux as a custom HID device called J-Controller. Windows only partly enumerates it so far.
 
 ### [rotating-disk-uvm](https://github.com/elitetq/rotating-disk-uvm)
-A UVM testbench for a rotating disk position controller, run on Vivado XSim. It uses constrained-random stimulus, scoreboards against golden models, SVA assertions and functional coverage. A learning project, with the PWM and clamp blocks done so far and the quadrature decoder and controller still to do.
+A UVM testbench for a rotating disk position controller, run on Vivado XSim and written by hand to teach myself UVM. The PWM and clamp blocks are verified with constrained-random stimulus, golden-model scoreboards, SVA assertions, functional coverage and a Python regression script. The quadrature decoder and controller are still to do.
 
 ### [JAARK](https://github.com/elitetq/JAARK)
-A Bluetooth remote controlled car with a handheld controller, built on two STM32F446 boards. I did most of the PCB work for the RC car itself (the controller hardware was built by a teammate) and wrote the C firmware for both the car and the controller, starting with the display driver.
-
-- **Motor board PCB** in KiCad with a 12V battery input, buck converters down to 5V and 3.3V, DRV8231 motor drivers, an HC-05 Bluetooth header, a metal detector input and test points. It carries a Nucleo-F446 on its morpho headers and went to JLCPCB for fabrication after a prototype revision
-- **ST7789 driver** I wrote from scratch over SPI, with rotation, partial fills, text using an open-source bitmap font library, a flicker-free float counter and progress bars
-- **Bluetooth link** on USART1 using DMA with idle-line reception and a Fletcher-16 checksum. A bad packet slides the buffer one byte and resyncs on its own
-- **Watchdog** on a hardware timer. If the link drops, the motors cut to zero, UART errors are cleared, reception restarts and the car waits for a valid packet
-- **Metal detector** that measures the sensor oscillator frequency with timer input capture, tracks it with a fast and a slow exponential average and fires a buzzer when they diverge. It calibrates at boot and debounces with a timer
-- **Ultrasonic ranging** timed with a 32-bit timer and echo interrupts, sent to the controller as a float inside the same checksummed packet
-- **Motor control** that smooths and curves joystick values into PWM duty cycles with a dead zone, driving two motors forward and reverse
-- **Controller firmware** that reads two joystick axes on separate ADCs, packs them into one byte with a debounced headlight toggle and shows distance, headlight state, a metal detected banner, joystick bars and a red watchdog reconnect screen on its display
-
-Built with STM32CubeIDE, HAL and C. Includes a Python script that converts PNG alpha masks into 1-bit pixel dumps for the display.
+A Bluetooth remote controlled car and its handheld controller on two STM32F446 boards. I did most of the RC car PCB in KiCad and wrote the C firmware for both sides, including an ST7789 display driver. The link uses DMA with checksums and a watchdog, and the car adds a metal detector and ultrasonic ranging.
 
 ### [PathGuard](https://github.com/elitetq/PathGuard)
-A pedestrian safety prototype built with my team at Hack the Change 2025. An ESP32-CAM feeds a YOLOv8 people counter, an Arduino UNO R4 WiFi kiosk lets pedestrians report hazards like ice, an AWS backend stores the events, and a React dashboard maps it all.
+A pedestrian safety prototype built with Team Sudo Bash Bros at Hack the Change 2025. An ESP32-CAM and YOLOv8 count pedestrians, an Arduino kiosk lets people report hazards like ice, and an AWS backend stores the events. I built the React and Mapbox dashboard that maps congestion and hazards and wired it to the AWS data, while teammates built the camera, AI and kiosk code.
 
 ## PCB work at BMERIT
 
