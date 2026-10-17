@@ -37,7 +37,18 @@ A custom USB gamepad built on an STM32F103. Includes the KiCad schematic and PCB
 A UVM testbench for a rotating disk position controller, run on Vivado XSim. It uses constrained-random stimulus, scoreboards against golden models, SVA assertions and functional coverage. A learning project, with the PWM and clamp blocks done so far and the quadrature decoder and controller still to do.
 
 ### [JAARK](https://github.com/elitetq/JAARK)
-STM32F446 firmware with a custom ST7789 display driver, alongside a KiCad PCB design for a motor board.
+A Bluetooth remote controlled car with a handheld controller, built on two STM32F446 boards. I did most of the PCB work for the RC car itself (the controller hardware was built by a teammate) and wrote the C firmware for both the car and the controller, starting with the display driver.
+
+- **Motor board PCB** in KiCad with a 12V battery input, buck converters down to 5V and 3.3V, DRV8231 motor drivers, an HC-05 Bluetooth header, a metal detector input and test points. It carries a Nucleo-F446 on its morpho headers and went to JLCPCB for fabrication after a prototype revision
+- **ST7789 driver** I wrote from scratch over SPI, with rotation, partial fills, text using an open-source bitmap font library, a flicker-free float counter and progress bars
+- **Bluetooth link** on USART1 using DMA with idle-line reception and a Fletcher-16 checksum. A bad packet slides the buffer one byte and resyncs on its own
+- **Watchdog** on a hardware timer. If the link drops, the motors cut to zero, UART errors are cleared, reception restarts and the car waits for a valid packet
+- **Metal detector** that measures the sensor oscillator frequency with timer input capture, tracks it with a fast and a slow exponential average and fires a buzzer when they diverge. It calibrates at boot and debounces with a timer
+- **Ultrasonic ranging** timed with a 32-bit timer and echo interrupts, sent to the controller as a float inside the same checksummed packet
+- **Motor control** that smooths and curves joystick values into PWM duty cycles with a dead zone, driving two motors forward and reverse
+- **Controller firmware** that reads two joystick axes on separate ADCs, packs them into one byte with a debounced headlight toggle and shows distance, headlight state, a metal detected banner, joystick bars and a red watchdog reconnect screen on its display
+
+Built with STM32CubeIDE, HAL and C. Includes a Python script that converts PNG alpha masks into 1-bit pixel dumps for the display.
 
 ### [PathGuard](https://github.com/elitetq/PathGuard)
 A pedestrian safety prototype built with my team at Hack the Change 2025. An ESP32-CAM feeds a YOLOv8 people counter, an Arduino UNO R4 WiFi kiosk lets pedestrians report hazards like ice, an AWS backend stores the events, and a React dashboard maps it all.
