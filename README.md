@@ -1,8 +1,10 @@
 # 💻 Jonart Bajraktari 🖥️
 
+> **Legend:** 🎥 Video demo · 🖨️ Custom PCB (KiCad) · 📖 Build and usage guide · 🚧 Work in progress · 👥 Team project
+
 Third-year electrical engineering student at the University of Calgary with a computer engineering minor. I like embedded software, hardware, PCBs, graphics libraries and anything low-level.
 
-## Featured: J-Graphics-Library
+## Featured: J-Graphics-Library 🎥 📖
 
 **I designed and built this graphics library from scratch for the Embedded in Embedded club (2025-26).**
 
@@ -24,22 +26,22 @@ Third-year electrical engineering student at the University of Calgary with a co
 
 ## More projects
 
-### [GameOver_NRF](https://github.com/elitetq/GameOver_NRF)
+### [GameOver_NRF](https://github.com/elitetq/GameOver_NRF) 📖
 TOTS, a touchscreen maze game for the nRF52840 DK running on Zephyr. You swipe to move, collect points and avoid enemies, and all rendering goes through my J-Graphics-Library. The repo includes image conversion scripts and full build and flash instructions.
 
-### [jzip](https://github.com/elitetq/jzip)
+### [jzip](https://github.com/elitetq/jzip) 📖
 A file compressor in pure C with no dependencies. It uses static order-0 arithmetic coding with 32-bit bounds and a 15-bit probability model, and writes a self-describing `.jzip` container that restores the original bytes and file extension exactly. Round trips are checked with SHA-256, cutting .txt files by about 46% and .psd files by 24%, and it builds on Linux and Windows.
 
-### [hid-controller](https://github.com/elitetq/hid-controller)
+### [hid-controller](https://github.com/elitetq/hid-controller) 🎥 🖨️ 📖
 A custom USB gamepad on an STM32F103 with my own KiCad schematic, PCB, fabrication files and firmware. It has two analog sticks, a D-pad, face buttons, bumpers and digital triggers, and it enumerates on Linux as a custom HID device called J-Controller. Windows only partly enumerates it so far.
 
-### [rotating-disk-uvm](https://github.com/elitetq/rotating-disk-uvm)
+### [rotating-disk-uvm](https://github.com/elitetq/rotating-disk-uvm) 🚧 📖
 A UVM testbench for a rotating disk position controller, run on Vivado XSim and written by hand to teach myself UVM. The PWM and clamp blocks are verified with constrained-random stimulus, golden-model scoreboards, SVA assertions, functional coverage and a Python regression script. The quadrature decoder and controller are still to do.
 
-### [JAARK](https://github.com/elitetq/JAARK)
+### [JAARK](https://github.com/elitetq/JAARK) 🖨️
 A Bluetooth remote controlled car and its handheld controller on two STM32F446 boards. I did most of the RC car PCB in KiCad and wrote the C firmware for both sides, including an ST7789 display driver. The link uses DMA with checksums and a watchdog, and the car adds a metal detector and ultrasonic ranging.
 
-### [PathGuard](https://github.com/elitetq/PathGuard)
+### [PathGuard](https://github.com/elitetq/PathGuard) 👥
 A pedestrian safety prototype built with Team Sudo Bash Bros at Hack the Change 2025. An ESP32-CAM and YOLOv8 count pedestrians, an Arduino kiosk lets people report hazards like ice, and an AWS backend stores the events. I built the React and Mapbox dashboard that maps congestion and hazards and wired it to the AWS data, while teammates built the camera, AI and kiosk code.
 
 ## PCB work at BMERIT
