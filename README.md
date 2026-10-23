@@ -19,7 +19,7 @@ Pick the portfolio that matches the role. Some projects appear in more than one.
 
 **I designed and built this graphics library from scratch for the Embedded in Embedded club (2025-26).**
 
-[J-Graphics-Library](https://github.com/elitetq/J-Graphics-Library) is about 1,600 lines of C for the Zephyr RTOS. It drives a 240x320 ST7789 display over SPI, with capacitive touch, on a Nordic nRF52840 DK.
+[J-Graphics-Library](https://github.com/elitetq/J-Graphics-Library) is about 1,600 lines of C for the Zephyr RTOS. It drives a 240x320 ILI9341 display over SPI, with capacitive touch, on a Nordic nRF52840 DK.
 
 - A layered component system with buttons, shapes, text, images, decals, progress bars and full-screen fills, plus runtime layer reordering
 - A double-buffered RAM scheme that cut image load time by almost 50%
