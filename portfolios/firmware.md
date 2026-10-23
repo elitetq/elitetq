@@ -8,7 +8,7 @@ Embedded C on Nordic and STM32 parts, from drivers and RTOS applications to USB 
 
 ## J-Graphics-Library 🎥 📖
 
-**Designed and built from scratch for the Embedded in Embedded club (2025-26).** About 1,600 lines of C for the Zephyr RTOS. It drives a 240x320 ST7789 display over SPI, with capacitive touch, on a Nordic nRF52840 DK.
+**Designed and built from scratch for the Embedded in Embedded club (2025-26).** About 1,600 lines of C for the Zephyr RTOS. It drives a 240x320 ILI9341 display over SPI, with capacitive touch, on a Nordic nRF52840 DK.
 
 - Asynchronous SPI transfers through Zephyr's callback API, and capacitive touch polling over I2C
 - A double-buffered RAM scheme that cut image load time by almost 50%
@@ -28,4 +28,4 @@ Firmware for a custom USB gamepad on an STM32F103. It samples the analog sticks 
 
 ## JAARK 🖨️
 
-C firmware for both sides of a Bluetooth remote controlled car, on two STM32F446 boards. The link uses DMA with checksums and a watchdog, and the project includes an ST7789 display driver. The car adds a metal detector and ultrasonic ranging. [View the repo](https://github.com/elitetq/JAARK).
+C firmware for both sides of a Bluetooth remote controlled car, on two STM32F446 boards. The link uses DMA with checksums and a watchdog, and the project includes an ILI9341 display driver. The car adds a metal detector and ultrasonic ranging. [View the repo](https://github.com/elitetq/JAARK).
